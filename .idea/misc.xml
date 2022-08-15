@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1595" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/border.xml" value="0.1925" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/border_button.xml" value="0.1595" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/font/roboto_mono_medium.xml" value="0.21458333333333332" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -1,59 +1,58 @@
 package com.mahar.firebaseapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
-    private EditText name;
-    private TextView textView;
-
-    FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference reference=database.getReference().child("Users");
-    DatabaseReference reference2=database.getReference();
+    private Button signInButton,signUpButton;
+    private EditText email,password;
+    private TextView labelEmail,labelPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button=findViewById(R.id.button);
-        name=findViewById(R.id.editText);
-        textView=findViewById(R.id.textView);
+        email=findViewById(R.id.inputSignUpEmail);
+        password=findViewById(R.id.inputSignUpPassword);
+        labelEmail=findViewById(R.id.labelSignUpEmail);
+        labelPassword=findViewById(R.id.labelSignUpPassword);
+        signUpButton=findViewById(R.id.signUpButton);
+        signInButton=findViewById(R.id.signInButton);
 
-        reference2.addValueEventListener(new ValueEventListener() {
+        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String realname = (String) snapshot.child("Users").child("name").getValue();
-                name.setText(realname);
+            public void onFocusChange(View view, boolean b) {
+                if (b) labelEmail.setVisibility(View.VISIBLE);
+                else labelEmail.setVisibility(View.INVISIBLE);
             }
-
+        });
+        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onFocusChange(View view, boolean b) {
+                if(b) labelPassword.setVisibility(View.VISIBLE);
+                else labelPassword.setVisibility(View.INVISIBLE);
             }
         });
 
-
-        button.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username=name.getText().toString();
 
-                reference.child("userName").setValue(username);
+            }
+        });
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signUpActivity= new Intent(MainActivity.this,SignUp.class);
+                startActivity(signUpActivity);
             }
         });
     }
