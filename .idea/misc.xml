@@ -6,9 +6,23 @@
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1595" />
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/border.xml" value="0.1925" />
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/border_button.xml" value="0.1595" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_account_circle_24.xml" value="0.131" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.131" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.131" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.131" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.131" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/drawable/ic_settings_24.xml" value="0.131" />
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/font/roboto_mono_medium.xml" value="0.21458333333333332" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_home_screen.xml" value="0.22" />
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/fragment_cardsetting.xml" value="0.4893917963224894" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.12962962962962962" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/fragment_notifications.xml" value="0.12962962962962962" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/layout/fragment_setting.xml" value="0.33" />
+        <entry key="..\:/AndroidJava/FirebaseApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
