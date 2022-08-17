@@ -48,6 +48,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:text="Profile"
             android:textSize="24sp" />
 
@@ -77,6 +80,9 @@
             android:id="@+id/setting"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:text="Setting"
             android:textSize="24sp" />
 
@@ -105,6 +111,9 @@
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:text="Log Out"
             android:textSize="24sp" />
 
