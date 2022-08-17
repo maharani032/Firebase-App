@@ -121,10 +121,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/purple_200"
         app:layout_constraintStart_toStartOf="@+id/inputSignUpPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputSignUpPassword"
-        tools:text="forget the password" />
+        android:text="forget the password" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

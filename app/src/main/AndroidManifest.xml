@@ -15,7 +15,9 @@
         tools:targetApi="31">
         <activity
             android:name=".forgetActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".HomePage"
             android:exported="false"
