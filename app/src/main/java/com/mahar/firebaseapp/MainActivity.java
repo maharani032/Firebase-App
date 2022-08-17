@@ -65,8 +65,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userMail=email.getText().toString();
                 String userPassword=password.getText().toString();
-                signInFirebase(userMail,userPassword);
-
+                if(userMail.length()!=0 || userPassword.length()>=5){
+                    signInFirebase(userMail,userPassword);
+                }
+                Toast.makeText(MainActivity.this,"Please input your password and email",Toast.LENGTH_SHORT).show();
+                return;
             }
         });
         signUpButton.setOnClickListener(new View.OnClickListener() {

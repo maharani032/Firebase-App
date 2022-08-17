@@ -49,10 +49,15 @@ public class forgetActivity extends AppCompatActivity {
                      if(task.isSuccessful()){
                          Toast.makeText(forgetActivity.this,"Please check ur mail"
                                  ,Toast.LENGTH_SHORT).show();
+                         finish();
+                     }
+                     else{
+                         Toast.makeText(forgetActivity.this,"Your email not register"
+                                 ,Toast.LENGTH_SHORT).show();
                      }
                     }
                 });
-                finish();
+
             }
         });
     }
