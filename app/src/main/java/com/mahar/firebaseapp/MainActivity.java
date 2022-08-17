@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button signInButton,signUpButton;
     private EditText email,password;
     private TextView labelEmail,labelPassword,forgetPassword;
-
+    private ProgressBar spinner;
     FirebaseAuth auth=FirebaseAuth.getInstance();
 
     @Override
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         signUpButton=findViewById(R.id.signUpButton);
         signInButton=findViewById(R.id.signInButton);
         forgetPassword=findViewById(R.id.forgetPassword);
+        spinner=findViewById(R.id.progressBar);
 
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,13 +65,17 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                spinner.setVisibility(View.VISIBLE);
                 String userMail=email.getText().toString();
                 String userPassword=password.getText().toString();
                 if(userMail.length()!=0 || userPassword.length()>=5){
                     signInFirebase(userMail,userPassword);
+//                    spinner.setVisibility(View.INVISIBLE);
+                }else if(userMail.length()==0 || userPassword.length()==0){
+                    Toast.makeText(MainActivity.this,"Please input your password and email",Toast.LENGTH_SHORT).show();
+                    spinner.setVisibility(View.INVISIBLE);
                 }
-                Toast.makeText(MainActivity.this,"Please input your password and email",Toast.LENGTH_SHORT).show();
-                return;
+
             }
         });
         signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        spinner.setVisibility(View.INVISIBLE);
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Intent i = new Intent(MainActivity.this,HomePage.class);
