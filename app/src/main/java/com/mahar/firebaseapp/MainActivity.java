@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     private Button signInButton,signUpButton;
     private EditText email,password;
-    private TextView labelEmail,labelPassword;
+    private TextView labelEmail,labelPassword,forgetPassword;
 
     FirebaseAuth auth=FirebaseAuth.getInstance();
 
@@ -36,7 +36,15 @@ public class MainActivity extends AppCompatActivity {
         labelPassword=findViewById(R.id.labelSignUpPassword);
         signUpButton=findViewById(R.id.signUpButton);
         signInButton=findViewById(R.id.signInButton);
+        forgetPassword=findViewById(R.id.forgetPassword);
 
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,forgetActivity.class);
+                startActivity(i);
+            }
+        });
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
@@ -68,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(signUpActivity);
             }
         });
+
+//        forgetPassword.onCl
     }
     public void signInFirebase(String email,String password){
         auth.signInWithEmailAndPassword(email, password)
