@@ -14,20 +14,20 @@
         android:theme="@style/Theme.FirebaseApp"
         tools:targetApi="31">
         <activity
-            android:name=".forgetActivity"
+            android:name=".ui.activity.forgetActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ui.activity.MainActivity"/>
 
         <activity
-            android:name=".HomePage"
+            android:name=".ui.fragment.HomePage"
             android:exported="false"
             android:label="@string/title_activity_home_page" />
         <activity
-            android:name=".SignUp"
+            android:name=".ui.activity.SignUp"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.activity.MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".FirebaseServices"
+        <service android:name=".services.FirebaseServices"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>

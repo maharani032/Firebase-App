@@ -1,4 +1,4 @@
-package com.mahar.firebaseapp;
+package com.mahar.firebaseapp.services;
 
 import androidx.annotation.NonNull;
 

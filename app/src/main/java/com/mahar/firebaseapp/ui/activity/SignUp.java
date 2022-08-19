@@ -1,7 +1,4 @@
-package com.mahar.firebaseapp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.mahar.firebaseapp.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.mahar.firebaseapp.R;
 
 public class SignUp extends AppCompatActivity {
     private Button signUpButton;
@@ -78,7 +79,7 @@ public class SignUp extends AppCompatActivity {
                             information.setVisibility(View.INVISIBLE);
                             Toast.makeText(SignUp.this,"Your account has been created"
                             ,Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(SignUp.this,MainActivity.class);
+                            Intent i = new Intent(SignUp.this, MainActivity.class);
                             startActivity(i);
                             finish();
                         } else {

@@ -1,7 +1,4 @@
-package com.mahar.firebaseapp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.mahar.firebaseapp.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +9,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.mahar.firebaseapp.ui.fragment.HomePage;
+import com.mahar.firebaseapp.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(MainActivity.this,forgetActivity.class);
+                Intent i=new Intent(MainActivity.this, forgetActivity.class);
                 startActivity(i);
             }
         });
@@ -65,23 +67,27 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                spinner.setVisibility(View.VISIBLE);
+
                 String userMail=email.getText().toString();
                 String userPassword=password.getText().toString();
-                if(userMail.length()!=0 || userPassword.length()>=5){
-                    signInFirebase(userMail,userPassword);
-//                    spinner.setVisibility(View.INVISIBLE);
-                }else if(userMail.length()==0 || userPassword.length()==0){
-                    Toast.makeText(MainActivity.this,"Please input your password and email",Toast.LENGTH_SHORT).show();
-                    spinner.setVisibility(View.INVISIBLE);
+
+                if(userMail.isEmpty() || userPassword.isEmpty()){
+                    Toast.makeText(MainActivity.this
+                            ,"Please input your password and email",Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                if(userMail.length()!=0 || userPassword.length()>=5){
+                    spinner.setVisibility(View.VISIBLE);
+                    signInFirebase(userMail,userPassword);
+                }
+
 
             }
         });
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signUpActivity= new Intent(MainActivity.this,SignUp.class);
+                Intent signUpActivity= new Intent(MainActivity.this, SignUp.class);
                 startActivity(signUpActivity);
             }
         });
@@ -96,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         spinner.setVisibility(View.INVISIBLE);
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Intent i = new Intent(MainActivity.this,HomePage.class);
+                            Intent i = new Intent(MainActivity.this, HomePage.class);
                             startActivity(i);
                             finish();
 
