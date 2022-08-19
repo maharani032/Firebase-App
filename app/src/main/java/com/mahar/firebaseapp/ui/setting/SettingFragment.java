@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,9 @@ public class SettingFragment extends Fragment {
     StorageReference storageReference;
 
     Uri selectedImage;
+
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         storageReference = FirebaseStorage.getInstance().getReference(Objects.requireNonNull(user.getEmail()));
@@ -59,9 +63,10 @@ public class SettingFragment extends Fragment {
         View root = binding.getRoot();
 
 //?        final TextView textView = binding.textDashboard;
-        final LinearLayout signOut=binding.logoutCard;
-        final ImageView photoProfile= binding.photoProfil;
-        final ProgressBar spinnerPhoto= binding.spinnerPhoto;
+        LinearLayout signOut=binding.logoutCard;
+        ImageView photoProfile= binding.photoProfil;
+        ProgressBar spinnerPhoto= binding.spinnerPhoto;
+
         spinnerPhoto.setVisibility(View.INVISIBLE);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +80,8 @@ public class SettingFragment extends Fragment {
         photoProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                photoProfile.setClickable(false);
-                spinnerPhoto.setVisibility(View.VISIBLE);
+                binding.photoProfil.setClickable(false);
+                binding.spinnerPhoto.setVisibility(View.VISIBLE);
                 if (ContextCompat.checkSelfPermission(getActivity()
                         , Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(getActivity()
@@ -101,20 +106,28 @@ public class SettingFragment extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         binding.spinnerPhoto.setVisibility(View.INVISIBLE);
+                        binding.photoProfil.setClickable(true);
                         Toast.makeText(getContext(),"Upload successfully",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        binding.spinnerPhoto.setVisibility(View.INVISIBLE);
+                        binding.photoProfil.setClickable(true);
                         Toast.makeText(getContext(),"Upload has been failed",Toast.LENGTH_SHORT).show();
 
                     }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                         double progress=(100 * snapshot.getBytesTransferred()/ snapshot.getTotalByteCount());
-                        binding.spinnerPhoto.setProgress((int)progress);
+                        Log.i("info progress",progress+" ");
+                        ProgressBar spinnerPhoto = binding.spinnerPhoto;
+                        spinnerPhoto.setProgress((int)progress);
+
                     }
+
                 });
 
     }
@@ -138,7 +151,10 @@ public class SettingFragment extends Fragment {
                     Picasso.get().load(selectedImage).into(binding.photoProfil);
 //                    uploadFile(selectedImage);
                 }
-
+                else{
+                    binding.photoProfil.setClickable(true);
+                    binding.spinnerPhoto.setVisibility(View.INVISIBLE);
+                }
             }
         });
     }
