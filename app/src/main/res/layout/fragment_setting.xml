@@ -8,36 +8,50 @@
     tools:context=".ui.setting.SettingFragment">
 
 
-
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:id="@+id/photoProfil"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintBottom_toTopOf="@+id/profilCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/icons8_android_os_240" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Click on the photo to choose your image"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/profilCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoProfil" />
 
     <LinearLayout
         android:id="@+id/profilCard"
         android:layout_width="402dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:foregroundGravity="bottom"
         android:gravity="bottom"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/photoProfil">
 
         <ImageButton
             android:id="@+id/profilIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/ic_baseline_person_24"
             android:contentDescription="profil icon"
             android:scaleType="fitXY"
@@ -70,6 +84,8 @@
             android:id="@+id/settingIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/ic_baseline_settings_applications_24"
             android:contentDescription="setting icon"
             android:scaleType="fitXY"
@@ -87,6 +103,7 @@
             android:textSize="24sp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/logoutCard"
         android:layout_width="0dp"
@@ -101,6 +118,8 @@
             android:id="@+id/logoutIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/ic_baseline_login_24"
             android:contentDescription="logout icon"
             android:scaleType="fitXY"
@@ -118,6 +137,16 @@
             android:textSize="24sp" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/spinnerPhoto"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
