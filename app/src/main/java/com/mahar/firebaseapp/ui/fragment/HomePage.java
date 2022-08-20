@@ -14,7 +14,7 @@ import com.mahar.firebaseapp.databinding.ActivityHomePageBinding;
 
 public class HomePage extends AppCompatActivity {
 
-    private ActivityHomePageBinding binding;
+    private ActivityHomePageBinding binding; //? error disini
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
